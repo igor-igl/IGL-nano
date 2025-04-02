@@ -1,7 +1,6 @@
 /bin/
 /obj/
 /dist/
-/node_modules/
 *.wasm
 *.wat
 *.exe
