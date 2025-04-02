@@ -57,4 +57,16 @@ describe('Math Module', () => {
       wasm.exports.freeInt32Array(arrayPtr);
     });
   });
+  // tests/math.test.js
+test('SIMD performance', () => {
+  const ptr = wasm.exports.allocateInt32Array(4);
+  const mem = new Int32Array(wasm.exports.memory.buffer);
+  mem.set([5, 3, 1, 10], ptr / 4);
+
+  console.time('SIMD');
+  wasm.exports.simdFactorial(ptr, 4);
+  console.timeEnd('SIMD'); // Должно быть быстрее скалярной версии!
+
+  expect(mem.slice(ptr / 4, ptr / 4 + 4)).toEqual([120, 6, 1, 3628800]);
+});
 });
