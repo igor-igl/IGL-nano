@@ -7,3 +7,5 @@
 *.out
 *.log
 /dist/*.wasmnode/
+node_modules/
+node/
