@@ -1,1 +1,0 @@
-export const _devMarker = "DEV-IGL-nano-" + (Math.random() * 1e6 | 0);
